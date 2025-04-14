@@ -10,7 +10,8 @@ class Birthday(models.Model):
     )
     birthday = models.DateField('Дата рождения', validators=(
         real_age,))  # Точно так же применяется и к форме
-    
+    image = models.ImageField('Фото', upload_to='birthdays_images', blank=True)
+
     class Meta:
         constraints = (
             models.UniqueConstraint(
@@ -18,4 +19,3 @@ class Birthday(models.Model):
                 name='Unique person constraint',
             ),
         )
-    
